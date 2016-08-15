@@ -30,4 +30,4 @@ conf.STATIC_LOCATIONS.forEach(l => {
     app.use(l.path, express.static(absoluteLocation, l.options))
 });
 
-app.listen(conf.PORT, () => console.log("Prison Go is running on port", process.env.PORT));
+app.listen(conf.PORT, () => console.log("Prison Go is running on port", conf.PORT));
