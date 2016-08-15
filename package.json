@@ -1,0 +1,29 @@
+{
+  "name": "prisongo-web",
+  "version": "0.0.1",
+  "description": "Web interface for prisons management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lpinheiro@bitbucket.org/catolica/web.git"
+  },
+  "author": "catolica",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/catolica/web#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "argparse": "^1.0.7",
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "font-awesome": "^4.6.3",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

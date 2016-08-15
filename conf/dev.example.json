@@ -1,0 +1,20 @@
+{
+    "PORT": 5000,
+    "STATIC_LOCATIONS": [
+        {
+            "path": "/d",
+            "location": "/dist"
+        },
+        {
+            "path": "/m",
+            "location": "/media"
+        },
+        {
+            "path": "/",
+            "location": "/assets/public",
+            "options": {
+                "index": ["index.html"]
+            }
+        }
+    ]
+}
