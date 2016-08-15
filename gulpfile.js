@@ -34,15 +34,11 @@ gulp.task("copyCSSVendor", () => {
         .pipe(gulp.dest(dest));
 });
 
-gulp.task("buildCSSDev", () => {
+gulp.task("buildCSSDev", buildCSSDev);
 
-});
+gulp.task("buildJSDev", buildJSDev);
 
 gulp.task("buildCSSDist", () => {
-
-});
-
-gulp.task("buildJSDev", () => {
 
 });
 
@@ -53,3 +49,11 @@ gulp.task("buildJSDist", () => {
 gulp.task("watchProject", () => {
 
 });
+
+function buildCSSDev() {
+
+}
+
+function buildJSDev() {
+
+}
