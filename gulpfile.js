@@ -1,3 +1,5 @@
+"use strict";
+
 const concat = require("gulp-concat");
 const copy = require("copy");
 const csso = require("gulp-csso");
@@ -62,12 +64,12 @@ gulp.task("buildCSSDist", () => {
 
 gulp.task("buildJSDist", () => {
     const sources = [
-        path.join(__dirname, "assets", "private", "js", "main.js"),
         path.join(__dirname, "assets", "private", "js", "**", "module.js"),
         path.join(__dirname, "assets", "private", "js", "**", "controllers", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "directives", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "filters", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "services", "*.js"),
+        path.join(__dirname, "assets", "private", "js", "main.js")
     ];
     const target = path.join(__dirname, "dist", "js");
     const distFile = "dist.js";
@@ -79,7 +81,32 @@ gulp.task("buildJSDist", () => {
 });
 
 gulp.task("watchProject", () => {
+    const sources = {
+        "css": [
+            path.join(__dirname, "assets", "private", "css", "*.css")
+        ],
+        "js": [
+            path.join(__dirname, "assets", "private", "js", "main.js"),
+            path.join(__dirname, "assets", "private", "js", "**", "module.js"),
+            path.join(__dirname, "assets", "private", "js", "**", "**", "*.js")
+        ]
+    }
 
+    // css update stream
+    gulp.watch(sources.css)
+        .on("change", (event) => {
+            console.log("File ".concat(event.path, " was ", event.type, ", rebuilding CSS dist file..."));
+
+            buildCSSDev();
+        });
+
+    // js update stream
+    gulp.watch(sources.js)
+        .on("change", (event) => {
+            console.log("File ".concat(event.path, " was ", event.type, ", rebuilding JS dist file..."));
+
+            buildJSDev();
+        });
 });
 
 function buildCSSDev() {
@@ -97,12 +124,12 @@ function buildCSSDev() {
 
 function buildJSDev() {
     const sources = [
-        path.join(__dirname, "assets", "private", "js", "main.js"),
         path.join(__dirname, "assets", "private", "js", "**", "module.js"),
         path.join(__dirname, "assets", "private", "js", "**", "controllers", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "directives", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "filters", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "services", "*.js"),
+        path.join(__dirname, "assets", "private", "js", "main.js")
     ];
     const target = path.join(__dirname, "dist", "js");
     const distFile = "dist.js";
