@@ -67,6 +67,7 @@ gulp.task("buildJSDist", () => {
         path.join(__dirname, "assets", "private", "js", "**", "module.js"),
         path.join(__dirname, "assets", "private", "js", "**", "controllers", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "directives", "*.js"),
+        path.join(__dirname, "assets", "private", "js", "**", "components", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "filters", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "services", "*.js"),
         path.join(__dirname, "assets", "private", "js", "main.js")
@@ -91,6 +92,9 @@ gulp.task("watchProject", () => {
             path.join(__dirname, "assets", "private", "js", "**", "**", "*.js")
         ]
     }
+
+    buildCSSDev();
+    buildJSDev();
 
     // css update stream
     gulp.watch(sources.css)
@@ -127,6 +131,7 @@ function buildJSDev() {
         path.join(__dirname, "assets", "private", "js", "**", "module.js"),
         path.join(__dirname, "assets", "private", "js", "**", "controllers", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "directives", "*.js"),
+        path.join(__dirname, "assets", "private", "js", "**", "components", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "filters", "*.js"),
         path.join(__dirname, "assets", "private", "js", "**", "services", "*.js"),
         path.join(__dirname, "assets", "private", "js", "main.js")

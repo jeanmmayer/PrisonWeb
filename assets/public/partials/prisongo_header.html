@@ -1,0 +1,24 @@
+<div class="row header">
+    <div class="col-xs-12">
+        <div class="user pull-right">
+            <prisongo-dropdown options="prisongo_header.userDropdownOptions">
+                <a class="dropdown-toggle">
+                    <img src="m/avatar.jpg">
+                </a>
+            </prisongo-dropdown>
+        </div>
+        <div class="meta">
+            <div class="page">
+                {{prisongo_header.BreadCrumbService.getCurrent().text}}
+            </div>
+            <div class="breadcrumb-links">
+                <div>
+                    <a
+                        href="{{breadcrumb.link}}"
+                        ng-repeat="breadcrumb in prisongo_header.BreadCrumbService.retrieve()"
+                    >{{breadcrumb.text}} / </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

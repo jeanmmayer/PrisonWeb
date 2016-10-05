@@ -1,0 +1,26 @@
+<div class="item dropdown open">
+    <div ng-click="prisongo_dropdown.dropdown.toggle()">
+        <ng-transclude></ng-transclude>
+    </div>
+    <ul
+        id="dbc"
+        class="dropdown-menu dropdown-menu-right"
+        ng-show="prisongo_dropdown.dropdown.isOpen"
+    >
+        <li class="dropdown-header">
+            {{options.title}}
+        </li>
+        <div ng-repeat-start="option in options.options"></div>
+        <li class="divider"></li>
+        <li
+            class="link"
+            ng-repeat="o in option"
+            ng-click="o.action()"
+        >
+            <a>
+                {{o.text}}
+            </a>
+        </li>
+        <div ng-repeat-end></div>
+    </ul>
+</div>
